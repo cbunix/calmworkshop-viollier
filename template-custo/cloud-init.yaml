@@ -6,10 +6,9 @@ write_files:
     ONBOOT="yes"
     BOOTPROTO=static
     NETMASK=255.255.255.0
-    IPADDR=10.16.80.220
+    IPADDR=10.16.80.227
     GATEWAY=10.16.80.254
   path: /etc/sysconfig/network-scripts/ifcfg-eth0
 runcmd:
-- service network restart
-runcmd:
+ - service network restart
  - [ hostnamectl, set-hostname, "toto" ]
