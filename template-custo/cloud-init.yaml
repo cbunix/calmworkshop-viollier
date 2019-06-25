@@ -1,0 +1,15 @@
+#cloud-config
+write_files: 
+- content: |
+    DEVICE="eth0"
+    NM_CONTROLLED="no"
+    ONBOOT="yes"
+    BOOTPROTO=static
+    NETMASK=255.255.255.0
+    IPADDR=10.16.80.220
+    GATEWAY=10.16.80.254
+  path: /etc/sysconfig/network-scripts/ifcfg-eth0
+runcmd:
+- service network restart
+runcmd:
+ - [ hostnamectl, set-hostname, "toto" ]
